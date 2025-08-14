@@ -45,3 +45,78 @@ nav .icons i{
     padding: 0 1.5rem;
     cursor: pointer;
 }
+
+
+
+/* Cards Sction- ZeYad */
+h1 {
+  text-align: center;
+  margin: 20px 0;
+  color: #d6336c;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+.card {
+  width: 250px;
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 15px;
+  text-align: center;
+}
+
+.card h3 {
+  margin: 10px 0;
+  color: #444;
+}
+
+.card p {
+  font-size: 14px;
+  color: #777;
+  margin: 5px 0 10px;
+}
+
+.card span {
+  display: block;
+  font-weight: bold;
+  font-size: 18px;
+  color: #28a745;
+  margin-bottom: 10px;
+}
+
+.card button {
+  padding: 10px 15px;
+  background: #d6336c;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.card button:hover {
+  background: #b92e5d;
+}
