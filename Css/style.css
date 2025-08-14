@@ -49,7 +49,7 @@ nav .icons i{
 
 
 /* Cards Sction- ZeYad */
-h1 {
+.card h1 {
   text-align: center;
   margin: 20px 0;
   color: #d6336c;
@@ -119,4 +119,7 @@ h1 {
 
 .card button:hover {
   background: #b92e5d;
+}
+.top-flower {
+
 }

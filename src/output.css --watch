@@ -648,6 +648,10 @@ video {
   top: 1.75rem;
 }
 
+.top-80 {
+  top: 20rem;
+}
+
 .-z-10 {
   z-index: -10;
 }
@@ -1223,6 +1227,11 @@ video {
 
 .leading-tight {
   line-height: 1.25;
+}
+
+.text-black {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity, 1));
 }
 
 .text-gray-500 {
