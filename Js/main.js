@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
               <button>Add to Cart</button>
             </div>
           </div>
+          
         `;
       });
     })

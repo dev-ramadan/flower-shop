@@ -24,7 +24,7 @@ nav .container{
 nav .logo{
     font-size: 0.8rem;
     color: #171616;
-    opacity: 0.5;
+    opacity: 1;
 }
 nav .list ul{
     display: flex;
@@ -49,18 +49,19 @@ nav .icons i{
 
 
 /* Cards Sction- ZeYad */
-.card h1 {
+ h1 {
   text-align: center;
   margin: 20px 0;
   color: #d6336c;
 }
 
 .cards-container {
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
-  padding: 20px;
+  padding: 20px 100px;
 }
 
 .card {
@@ -78,7 +79,7 @@ nav .icons i{
 }
 
 .card img {
-  width: 100%;
+  width: 220px;
   height: 220px;
   object-fit: cover;
 }
