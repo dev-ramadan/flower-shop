@@ -1,55 +1,66 @@
+/* font-family: "Dancing Script", cursive; */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+
 /*  Global Rules */
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
-html{
-    scroll-behavior: smooth;
+
+html {
+  scroll-behavior: smooth;
 }
-ul{
-    list-style: none;
+
+ul {
+  list-style: none;
 }
-.container{
-    padding: 0 100px;
+
+.container {
+  padding: 0 100px;
 }
+
 /*  Global Rules */
 
 /* Nav-bar-ZeYad */
-nav .container{
-    display:flex;
-    justify-content: space-between;
-    align-items: center;
+nav .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-nav .logo{
-    font-size: 0.8rem;
-    color: #171616;
-    opacity: 1;
+
+nav .logo {
+  font-size: 0.8rem;
+  color: #171616;
+  opacity: 1;
 }
-nav .list ul{
-    display: flex;
+
+nav .list ul {
+  display: flex;
 }
-nav .list ul>li{
-    padding: 0 1rem;
-    color: #515151;
-    font-weight: bold;
-    opacity: 0.5;
-    cursor: pointer;
+
+nav .list ul>li {
+  padding: 0 1rem;
+  color: #515151;
+  font-weight: bold;
+  opacity: 0.5;
+  cursor: pointer;
 }
-nav .list .Home{
-    opacity: 1;
+
+nav .list .Home {
+  opacity: 1;
 }
 
 
-nav .icons i{
-    padding: 0 1.5rem;
-    cursor: pointer;
+nav .icons i {
+  padding: 0 1.5rem;
+  cursor: pointer;
 }
 
 
 
 /* Cards Sction- ZeYad */
- h1 {
+h1 {
   text-align: center;
   margin: 20px 0;
   color: #d6336c;
@@ -68,14 +79,14 @@ nav .icons i{
   width: 250px;
   background: #ffffff;
   border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .card img {
@@ -121,6 +132,30 @@ nav .icons i{
 .card button:hover {
   background: #b92e5d;
 }
-.top-flower {
 
+.font-dancing {
+  font-family: "Dancing Script", cursive;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  letter-spacing: 2px;
+  word-spacing: 3px;
+  font-style: normal;
+}
+
+.swiper {
+  padding: 30px 0;
+  width: 85% !important;
+}
+
+.swiper-slide {
+  & .desc{
+    font-family: "Dancing Script", cursive;
+    font-style: normal;
+    font-weight: 400;
+  }
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  height: fit-content;
+  width: 400px;
 }
