@@ -6,17 +6,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
       data.forEach((flower) => {
         let card = document.createElement("div");
-        card.classList.add("card");
+        card.classList.add("card", "w-80", "h-120", "bg-gray-100", "rounded-xl", "p-8", "relative");
         card.innerHTML += `
-                       <img src="${flower.image}" alt="${flower.name}">
-                        <div class="card-content">
-                        <h3>${flower.name}</h3>
+                       <img class="h-60 w-full rounded-lg" src="${flower.image}" alt="${flower.name}">
+                       <button class="absolute top-10 right-10 bg-blue-400 text-white rounded p-1 text-sm">Quick View</button>
+                        <div class="card-content text-center">
+                        <h3 class="text-xl">${flower.name}</h3>
                         <p>${flower.description}</p>
-                        <span>$${flower.price.toFixed(2)}</span>
-                        <button>Add to Cart</button>
+                        <div class="flex justify-between">
+                        <span class="text-blue-600">$${flower.price.toFixed(2)}</span>
+                        <button class="bg-blue-400 text-white font-bold rounded-full  w-8 h-8 text-lg felx justify-center" ><i class="fa-solid fa-plus"></i></button>
+                        </div>
                         </div>
         `;
-        card.children[0].addEventListener("click", () => show(flower));
+        card.children[1].addEventListener("click", () => show(flower));
         container.appendChild(card);
       });
     })

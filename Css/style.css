@@ -33,7 +33,7 @@ ul {
 
 
 /* Cards Sction- ZeYad */
-
+/* 
 .cards-container {
   width: 100%;
   display: flex;
@@ -99,7 +99,7 @@ ul {
 
 .card button:hover {
   background: #b92e5d;
-}
+} */
 
  .font-dancing {
   font-family: "Dancing Script", cursive;
