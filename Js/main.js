@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
-  fetch('../Js/data.json')
-    .then(response => response.json())
-    .then(data => {
-      let container = document.getElementById('flower-cards');
+  fetch("../Js/data.json")
+    .then((response) => response.json())
+    .then((data) => {
+      let container = document.getElementById("flower-cards");
 
-      data.forEach(flower => {
+      data.forEach((flower) => {
         let card = document.createElement("div");
         card.classList.add("card");
         card.innerHTML += `
@@ -16,14 +16,13 @@ document.addEventListener("DOMContentLoaded", () => {
               <button>Add to Cart</button>
             </div>          
         `;
-        card.children[0].addEventListener('click', () => show(flower))
-        container.appendChild(card)
-
-      })
+        card.children[0].addEventListener("click", () => show(flower));
+        container.appendChild(card);
+      });
     })
-    .catch(error => console.error("Error loading data:", error));
+    .catch((error) => console.error("Error loading data:", error));
 
-  // close popup button 
+  // close popup button
   $("#closePopup").click(function (e) {
     $("#popup").fadeOut();
   });
@@ -40,17 +39,16 @@ document.addEventListener("DOMContentLoaded", () => {
     $("#popupName").text(flowerData.name);
     $("#popupDescription").text(flowerData.description);
     $("#popupPrice").text(`$${flowerData.price.toFixed(2)}`);
-    $("#popup").fadeIn();;
+    $("#popup").fadeIn();
   };
-
 
   // customer slider bt Swiper JS
   const customerReviwe = async () => {
     try {
-      const getReview = await fetch('../Js/customer.json');
+      const getReview = await fetch("../Js/customer.json");
       const review = await getReview.json();
       let swiperWrapper = document.querySelector(".swiper-wrapper");
-      review.forEach(item => {
+      review.forEach((item) => {
         let card = document.createElement("div");
         card.classList.add("swiper-slide");
         card.innerHTML = `
@@ -68,20 +66,21 @@ document.addEventListener("DOMContentLoaded", () => {
         swiperWrapper.appendChild(card);
       });
 
-
       new Swiper(".mySwiper", {
         loop: true,
-        autoplay: { delay: 5000 },
+        autoplay: { delay: 1000 },
         pagination: { el: ".swiper-pagination", clickable: true },
-        navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
         slidesPerView: 1,
         spaceBetween: 20,
         breakpoints: {
           768: { slidesPerView: 2 },
-          1024: { slidesPerView: 3 }
-        }
+          1024: { slidesPerView: 3 },
+        },
       });
-
     } catch (error) {
       console.error("Error loading reviews:", error);
     }
@@ -90,5 +89,29 @@ document.addEventListener("DOMContentLoaded", () => {
   customerReviwe();
 });
 
+// Navbar ZeYad
+let nav = document.getElementById("main-nav");
+let menu = document.getElementById("Hamburger-menu");
+let icon = document.querySelector("#Hamburger-menu i");
 
+
+// icon Click
+menu.addEventListener("click", (e) => {
+  // Add Animation To Main-Nav
+  nav.classList.toggle("hidden");
+  nav.classList.add("top-0", "bg-gray-300", "absolute", "left-0", "w-full" ,"pl-8" ,"p-4" ,"z-10");
+    // Toggle Hamburger-icon with ternary operator
+  icon.classList.contains("fa-bars") 
+    ? icon.classList.replace("fa-bars", "fa-xmark") 
+    : icon.classList.replace("fa-xmark", "fa-bars");
+});
+
+// li Items
+let liItems = document.querySelectorAll("#main-nav ul li");
+
+liItems.forEach((item) => {
+  item.classList.add("md:px-4", "opacity-50", "p-2");
+  // li FirstItem
+  liItems[0].classList.replace("opacity-50", "opacity-80");
+});
 
