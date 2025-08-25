@@ -37,6 +37,7 @@ nav .logo {
 
 nav .list ul {
   display: flex;
+  justify-items: center
 }
 
 nav .list ul>li {
