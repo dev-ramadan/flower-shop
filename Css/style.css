@@ -21,9 +21,9 @@ ul {
 }
 
 .animation{
-  transform: scale(1.1);
   transition: 0.5s ease-in-out;
 }
+
 /*  Global Rules */
 @media(max-width:768px){
   #main-nav {

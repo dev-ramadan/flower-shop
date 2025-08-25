@@ -8,13 +8,13 @@ document.addEventListener("DOMContentLoaded", () => {
         let card = document.createElement("div");
         card.classList.add("card");
         card.innerHTML += `
-            <img src="${flower.image}" alt="${flower.name}">
-            <div class="card-content">
-              <h3>${flower.name}</h3>
-              <p>${flower.description}</p>
-              <span>$${flower.price.toFixed(2)}</span>
-              <button>Add to Cart</button>
-            </div>          
+                       <img src="${flower.image}" alt="${flower.name}">
+                        <div class="card-content">
+                        <h3>${flower.name}</h3>
+                        <p>${flower.description}</p>
+                        <span>$${flower.price.toFixed(2)}</span>
+                        <button>Add to Cart</button>
+                        </div>
         `;
         card.children[0].addEventListener("click", () => show(flower));
         container.appendChild(card);
@@ -94,15 +94,24 @@ let nav = document.getElementById("main-nav");
 let menu = document.getElementById("Hamburger-menu");
 let icon = document.querySelector("#Hamburger-menu i");
 
-
-// icon Click
 menu.addEventListener("click", (e) => {
   // Add Animation To Main-Nav
-  nav.classList.toggle("hidden");
-  nav.classList.add("top-0", "bg-gray-300", "absolute", "left-0", "w-full" ,"pl-8" ,"p-4" ,"z-10");
-    // Toggle Hamburger-icon with ternary operator
-  icon.classList.contains("fa-bars") 
-    ? icon.classList.replace("fa-bars", "fa-xmark") 
+  nav.classList.add("animation");
+  // Show/Hide Nav
+  nav.classList.toggle("opacity-100");
+  nav.classList.add(
+    "top-0",
+    "bg-gray-300",
+    "absolute",
+    "left-0",
+    "w-full",
+    "pl-8",
+    "p-4",
+    "z-10",
+  );
+  // Toggle Hamburger-icon with ternary operator
+  icon.classList.contains("fa-bars")
+    ? icon.classList.replace("fa-bars", "fa-xmark")
     : icon.classList.replace("fa-xmark", "fa-bars");
 });
 
@@ -114,4 +123,3 @@ liItems.forEach((item) => {
   // li FirstItem
   liItems[0].classList.replace("opacity-50", "opacity-80");
 });
-
