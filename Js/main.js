@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       data.forEach(flower => {
         let card = document.createElement("div");
+<<<<<<< Updated upstream
         card.classList.add("card");
         card.innerHTML += `
             <img src="${flower.image}" alt="${flower.name}">
@@ -15,6 +16,33 @@ document.addEventListener("DOMContentLoaded", () => {
               <span>$${flower.price.toFixed(2)}</span>
               <button>Add to Cart</button>
             </div>          
+=======
+        card.classList.add(
+          "card",
+          "w-80",
+          "h-120",
+          "bg-white",
+          "rounded-xl",
+          "p-8",
+          "relative",
+        );
+        card.innerHTML += `
+                        <span class="card-bullet"></span>
+                        <button class="absolute top-[10px] right-[10px] bg-gray-700  shadow-2xl text-white rounded-lg p-1 text-sm">Quick View</button>
+                       <img class="h-60 w-full rounded-lg mt-4" src="${
+                         flower.image
+                       }" alt="${flower.name}">
+                        <div class="card-content text-center">
+                        <h3 class="text-xl py-2 font-semibold">${flower.name}</h3>
+                        <p class="text-gray-500">${flower.description}</p>
+                        <div class="flex justify-between items-center pt-4">
+                        <span class="text-blue-600 text-xl">$${flower.price.toFixed(
+                          2
+                        )}</span>
+                        <button class="bg-blue-400 text-white font-bold rounded-full  w-8 h-8 text-sm felx justify-center" ><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                        </div>
+>>>>>>> Stashed changes
         `;
         card.children[0].addEventListener('click', () => show(flower))
         container.appendChild(card)
@@ -90,5 +118,37 @@ document.addEventListener("DOMContentLoaded", () => {
   customerReviwe();
 });
 
+<<<<<<< Updated upstream
 
+=======
+// Navbar ZeYad
+let nav = document.getElementById("main-nav");
+let menu = document.getElementById("Hamburger-menu");
+let icon = document.querySelector("#Hamburger-menu i");
+let switch_btn = document.getElementById("SwitchDarkmode");
+menu.addEventListener("click", (e) => {
+  // Show/Hide Switch_btn
+  switch_btn.classList.toggle("opacity-100");
+  switch_btn.classList.toggle("animation");
+  // Add Animation To Main-Nav
+  nav.classList.add("animation");
+  // Show/Hide Nav
+  nav.classList.toggle("opacity-100");
+  nav.classList.add(
+    "top-0",
+    "bg-gray-300",
+    "absolute",
+    "left-0",
+    "w-full",
+    "pl-8",
+    "p-4",
+    "z-10",
+    "h-[50%]"
+  );
+  // Toggle Hamburger-icon with ternary operator
+  icon.classList.contains("fa-bars")
+    ? icon.classList.replace("fa-bars", "fa-xmark")
+    : icon.classList.replace("fa-xmark", "fa-bars");
+});
+>>>>>>> Stashed changes
 
