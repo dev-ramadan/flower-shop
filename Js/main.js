@@ -1,22 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
-  fetch('../Js/data.json')
-    .then(response => response.json())
-    .then(data => {
-      let container = document.getElementById('flower-cards');
+  fetch("../Js/data.json")
+    .then((response) => response.json())
+    .then((data) => {
+      let container = document.getElementById("flower-cards");
 
-      data.forEach(flower => {
+      data.forEach((flower) => {
         let card = document.createElement("div");
-<<<<<<< Updated upstream
-        card.classList.add("card");
-        card.innerHTML += `
-            <img src="${flower.image}" alt="${flower.name}">
-            <div class="card-content">
-              <h3>${flower.name}</h3>
-              <p>${flower.description}</p>
-              <span>$${flower.price.toFixed(2)}</span>
-              <button>Add to Cart</button>
-            </div>          
-=======
         card.classList.add(
           "card",
           "w-80",
@@ -42,16 +31,14 @@ document.addEventListener("DOMContentLoaded", () => {
                         <button class="bg-blue-400 text-white font-bold rounded-full  w-8 h-8 text-sm felx justify-center" ><i class="fa-solid fa-plus"></i></button>
                         </div>
                         </div>
->>>>>>> Stashed changes
         `;
-        card.children[0].addEventListener('click', () => show(flower))
-        container.appendChild(card)
-
-      })
+        card.children[1].addEventListener("click", () => show(flower));
+        container.appendChild(card);
+      });
     })
-    .catch(error => console.error("Error loading data:", error));
+    .catch((error) => console.error("Error loading data:", error));
 
-  // close popup button 
+  // close popup button
   $("#closePopup").click(function (e) {
     $("#popup").fadeOut();
   });
@@ -68,17 +55,16 @@ document.addEventListener("DOMContentLoaded", () => {
     $("#popupName").text(flowerData.name);
     $("#popupDescription").text(flowerData.description);
     $("#popupPrice").text(`$${flowerData.price.toFixed(2)}`);
-    $("#popup").fadeIn();;
+    $("#popup").fadeIn();
   };
-
 
   // customer slider bt Swiper JS
   const customerReviwe = async () => {
     try {
-      const getReview = await fetch('../Js/customer.json');
+      const getReview = await fetch("../Js/customer.json");
       const review = await getReview.json();
       let swiperWrapper = document.querySelector(".swiper-wrapper");
-      review.forEach(item => {
+      review.forEach((item) => {
         let card = document.createElement("div");
         card.classList.add("swiper-slide");
         card.innerHTML = `
@@ -96,20 +82,21 @@ document.addEventListener("DOMContentLoaded", () => {
         swiperWrapper.appendChild(card);
       });
 
-
       new Swiper(".mySwiper", {
         loop: true,
-        autoplay: { delay: 5000 },
+        autoplay: { delay: 1000 },
         pagination: { el: ".swiper-pagination", clickable: true },
-        navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
         slidesPerView: 1,
         spaceBetween: 20,
         breakpoints: {
           768: { slidesPerView: 2 },
-          1024: { slidesPerView: 3 }
-        }
+          1024: { slidesPerView: 3 },
+        },
       });
-
     } catch (error) {
       console.error("Error loading reviews:", error);
     }
@@ -118,9 +105,6 @@ document.addEventListener("DOMContentLoaded", () => {
   customerReviwe();
 });
 
-<<<<<<< Updated upstream
-
-=======
 // Navbar ZeYad
 let nav = document.getElementById("main-nav");
 let menu = document.getElementById("Hamburger-menu");
@@ -150,5 +134,12 @@ menu.addEventListener("click", (e) => {
     ? icon.classList.replace("fa-bars", "fa-xmark")
     : icon.classList.replace("fa-xmark", "fa-bars");
 });
->>>>>>> Stashed changes
 
+// li Items
+let liItems = document.querySelectorAll("#main-nav ul li");
+
+liItems.forEach((item) => {
+  item.classList.add("md:px-4", "opacity-50", "p-2");
+  // li FirstItem
+  liItems[0].classList.replace("opacity-50", "opacity-80");
+});

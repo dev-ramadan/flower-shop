@@ -20,68 +20,10 @@ ul {
   padding: 0 100px;
 }
 
-<<<<<<< Updated upstream
-/*  Global Rules */
-
-/* Nav-bar-ZeYad */
-nav .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-nav .logo {
-  font-size: 0.8rem;
-  color: #171616;
-  opacity: 1;
-}
-
-nav .list ul {
-  display: flex;
-  justify-items: center
-}
-
-nav .list ul>li {
-  padding: 0 1rem;
-  color: #515151;
-  font-weight: bold;
-  opacity: 0.5;
-  cursor: pointer;
-}
-
-nav .list .Home {
-  opacity: 1;
-}
-
-
-nav .icons i {
-  padding: 0 1.5rem;
-  cursor: pointer;
-}
-
-
-
-/* Cards Sction- ZeYad */
-h1 {
-  text-align: center;
-  margin: 20px 0;
-  color: #d6336c;
-}
-
-.cards-container {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  padding: 20px 100px;
-}
-=======
 .animation {
   transition: 0.5s ease-in-out;
 }
 /*  Global Rules */
->>>>>>> Stashed changes
 
 /* Card Styling-bullet */
 .card {
@@ -154,25 +96,7 @@ h1 {
   top: 14px;
   border-radius: 999px;
 }
-<<<<<<< Updated upstream
-
-.card button {
-  padding: 10px 15px;
-  background: #d6336c;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.card button:hover {
-  background: #b92e5d;
-}
-
-=======
 /* Swiper */
->>>>>>> Stashed changes
 .font-dancing {
   font-family: "Dancing Script", cursive;
   font-optical-sizing: auto;
@@ -188,11 +112,12 @@ h1 {
 }
 
 .swiper-slide {
-  & .desc{
+  & .desc {
     font-family: "Dancing Script", cursive;
     font-style: normal;
     font-weight: 400;
   }
+
   display: flex;
   justify-content: center;
   background-color: white;
@@ -224,6 +149,81 @@ h1 {
 
 /* The slider */
 .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #2a2a2a;
+  transition: 0.4s;
+  border-radius: 30px;
+  overflow: hidden;
+
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 1.2em;
+  width: 1.2em;
+  border-radius: 20px;
+  left: 0.5em;
+  bottom: 0.5em;
+  transition: 0.4s;
+  transition-timing-function: cubic-bezier(0.81, -0.04, 0.38, 1.5);
+  box-shadow: inset 8px -4px 0px 0px #fff;
+}
+
+.switch input:checked+.slider {
+  background-color: #00a6ff;
+}
+
+.switch input:checked+.slider:before {
+  transform: translateX(1.8em);
+  box-shadow: inset 15px -4px 0px 15px #ffcf48;
+}
+
+.star {
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  width: 5px;
+  transition: all 0.4s;
+  height: 5px;
+}
+
+.star_1 {
+  left: 2.5em;
+  top: 0.5em;
+}
+
+.star_2 {
+  left: 2.2em;
+  top: 1.2em;
+}
+
+.star_3 {
+  left: 3em;
+  top: 0.9em;
+}
+
+.switch input:checked~.slider .star {
+  opacity: 0;
+}
+
+.cloud {
+  width: 3.5em;
+  position: absolute;
+  bottom: -1.4em;
+  left: -1.1em;
+  opacity: 0;
+  transition: all 0.4s;
+}
+
+.switch input:checked~.slider .cloud {
+  opacity: 1;
+}slider {
   position: absolute;
   cursor: pointer;
   top: 0;
