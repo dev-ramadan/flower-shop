@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+  let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
   fetch("../Js/data.json")
     .then((response) => response.json())
     .then((data) => {
@@ -38,12 +39,32 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   const show = (flowerData) => {
-    $("#popupImage").attr("src", flowerData.image);
-    $("#popupName").text(flowerData.name);
-    $("#popupDescription").text(flowerData.description);
-    $("#popupPrice").text(`$${flowerData.price.toFixed(2)}`);
+    $("#popupImage").attr("src", flowerData?.image);
+    $("#popupName").text(flowerData?.name);
+    $("#popupDescription").text(flowerData?.description);
+    $("#popupPrice").text(`$${flowerData?.price.toFixed(2)}`);
     $("#popup").fadeIn();
+    return flowerData
   };
+  
+  // add Favorite item to localeStorge
+  $(".fav").on('click', function () {
+    const favProduct = {
+      name: $("#popupName").text(),
+      price: $("#popupPrice").text(),
+      image: $("#popupImage").attr("src"),
+      description: $("#popupDescription").text()
+    };
+
+    if (!favorites.some(item => item.name === favProduct.name)) {
+      favorites.push(favProduct);
+      localStorage.setItem("favorites", JSON.stringify(favorites));
+      console.log("تمت الإضافة:", favProduct);
+      updateFavoritesCount()
+    } else {
+      console.log("المنتج موجود بالفعل في المفضلة");
+    }
+  });
 
   // customer slider bt Swiper JS
   const customerReviwe = async () => {
@@ -90,6 +111,8 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   customerReviwe();
+
+  
 });
 
 // Navbar ZeYad
