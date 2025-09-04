@@ -1,13 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 
-  // Function to update cart counter
-  function updateCartCounter() {
-    let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
-    let counter = document.getElementById("counter");
-    let totalQuantity = cartItems.reduce((sum, item) => sum + item.quantity, 0);
-    counter.textContent = totalQuantity;
-  }
+
 
   fetch("../Src/data/data.json")
     .then((response) => response.json())
@@ -50,6 +44,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Add To Cart
         let cartBtn = card.querySelector(".cart");
+        let popupBtn = card.querySelector(".pop-up-add");
+
         cartBtn.addEventListener("click", function () {
           // 1. Prepare product data
           let product = {
@@ -181,57 +177,10 @@ document.addEventListener("DOMContentLoaded", () => {
   customerReviwe();
 });
 
-// Navbar ZeYad
-let nav = document.getElementById("main-nav");
-let menu = document.getElementById("Hamburger-menu");
-let icon = document.querySelector("#Hamburger-menu i");
 
-menu.addEventListener("click", (e) => {
-  // Add Animation To Main-Nav
-  nav.classList.add("animation");
-  // Show/Hide Nav
-  nav.classList.toggle("opacity-100");
-  nav.classList.add(
-    "top-0",
-    "bg-gray-300",
-    "absolute",
-    "left-0",
-    "w-full",
-    "pl-8",
-    "p-4",
-    "z-10",
-  );
-  // Toggle Hamburger-icon with ternary operator
-  icon.classList.contains("fa-bars")
-    ? icon.classList.replace("fa-bars", "fa-xmark")
-    : icon.classList.replace("fa-xmark", "fa-bars");
-});
-
-// li Items
-let liItems = document.querySelectorAll("#main-nav ul li");
-
-liItems.forEach((item) => {
-  item.classList.add("md:px-4", "opacity-50", "p-2");
-  // li FirstItem
-  liItems[0].classList.replace("opacity-50", "opacity-80");
-  // 
-  liItems[0].addEventListener('click', ()=>{
-    window.location.href = '/index.html'
-
-  })
-});
-
-
-// cart-icon
-let cart = document.getElementById("cart-icon");
-cart.addEventListener("click", () => {
-  window.location.href = "../Pages/Cart.html";
-});
 
 
 let cartBtn = card.querySelector(".cart");
-
-
 cartBtn.addEventListener("click", () => {
   let product = {
     id: flower.id,

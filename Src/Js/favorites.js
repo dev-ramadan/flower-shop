@@ -18,9 +18,9 @@ function renderFavorites() {
         card.className =
             "bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300";
         card.innerHTML = `
-          <img src="${item.image}" alt="${item.name}" class="w-full h-48 object-cover">
+          <img src="${item.image}" alt="${item.name}" class="w-60 h-60 rounded-lg mx-auto">
           <div class="p-4">
-            <h2 class="text-lg font-semibold text-gray-800 mb-2">${item.name}</h2>
+            <h2 class="text-lg font-semibold text-gray-800 mb-2 text-center">${item.name}</h2>
             <p class="text-gray-600 mb-4">${item.description}</p>
             <div class="flex justify-between items-center">
               <span class="text-blue-600 font-bold text-lg">${item.price}</span>
