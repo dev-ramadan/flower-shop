@@ -1,63 +1,83 @@
 const Navbar = document.querySelector("nav");
 let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 
-Navbar.innerHTML = `
+Navbar.innerHTML = /* html */ `
   <!-- Logo -->
   <div class="logo">
-    <h1 class="font-semibold md:text-xl lg:text-2xl text-pink-600 text-xl cursor-pointer">
+    <h1
+      class="font-semibold md:text-xl lg:text-2xl text-pink-600 text-xl cursor-pointer"
+    >
       Flower Shop
     </h1>
   </div>
 
   <!-- Main Navigation (Desktop) -->
-  <div id="main-nav"
-      class="hidden md:block text-gray-700 dark:text-gray-200 md:text-sm lg:text-base cursor-pointer">
+  <div
+    id="main-nav"
+    class="hidden md:block dark:text-gray-200 md:text-sm lg:text-base cursor-pointer"
+  >
     <ul class="md:flex space-x-6">
-      <li class="hover:text-pink-600 transition"><a href='/'>Home</a></li>
-      <li class="hover:text-pink-600 transition">Our Flowers</li>
-      <li class="hover:text-pink-600 transition">Lotus</li>
-      <li class="hover:text-pink-600 transition">Jasmine</li>
-      <li class="hover:text-pink-600 transition">About</li>
-      <li class="hover:text-pink-600 transition">Contact</li>
+      <li class="text-black opacity-80"><a href="/">Home</a></li>
+      <li class="text-black opacity-50">Our Flowers</li>
+      <li class="text-black opacity-50">Lotus</li>
+      <li class="text-black opacity-50">Jasmine</li>
+      <li class="text-black opacity-50">About</li>
+      <li class="text-black opacity-50">Contact</li>
     </ul>
   </div>
 
   <!-- Icons (Desktop) -->
-  <div class="space-x-4 md:flex items-center hidden relative text-gray-700 dark:text-gray-200">
+  <div class="space-x-4 md:flex items-center hidden relative text-gray-700 dark:text-black">
     <i class="fa-regular fa-user cursor-pointer"></i>
 
     <div class="relative cursor-pointer">
-        <a href='../Pages/favorites.html'>
+      <a href="../Pages/favorites.html">
         <i class="fa-regular fa-heart"></i>
-        <span id="favorites-count-desktop"
-        class="bg-red-500 absolute -right-2 -top-2 rounded-full w-4 h-4 text-xs text-center text-white">0</span>
-        </a>
+        <span
+          id="favorites-count-desktop"
+          class="bg-red-500 absolute -right-2 -top-2 rounded-full w-4 h-4 text-xs text-center text-white"
+        >0</span>
+      </a>
     </div>
 
     <div class="relative cursor-pointer">
       <i id="cart-icon" class="fa-solid fa-cart-shopping"></i>
-      <span id="counter"
-          class="bg-red-500 absolute -right-2 -top-2 rounded-full w-4 h-4 text-xs text-center text-white">0</span>
+      <span
+        id="counter"
+        class="bg-red-500 absolute -right-2 -top-2 rounded-full w-4 h-4 text-xs text-center text-white"
+      >0</span>
     </div>
   </div>
 
   <!-- Hamburger Menu -->
-  <div id="Hamburger-menu" class="md:hidden cursor-pointer z-20 text-gray-700 dark:text-gray-200">
+  <div
+    id="Hamburger-menu"
+    class="md:hidden cursor-pointer z-20 text-black dark:text-gray-900"
+  >
     <i class="fa-solid fa-bars text-xl"></i>
   </div>
 
   <!-- Mobile Menu (Slide-in) -->
-  <div id="mobile-menu"
-    class="fixed top-0 left-0 w-64 h-screen dark:bg-gray-900 bg-white transform -translate-x-full transition-transform duration-300 flex flex-col justify-between p-6 text-lg text-gray-700 dark:text-gray-200 z-10">
-    
+  <div
+    id="mobile-menu"
+    class="fixed top-0 left-0 w-64 h-screen dark:bg-gray-900 bg-white transform -translate-x-full transition-transform duration-300 flex flex-col justify-between p-6 text-lg text-gray-700 dark:text-gray-200 z-10 cursor-pointer"
+  >
     <ul class="space-y-6">
-      <li class="hover:text-pink-600 transition">Home</li>
+      <li class="hover:text-pink-600 transition"><a href="/">Home</a></li>
       <li class="hover:text-pink-600 transition">Our Flowers</li>
       <li class="hover:text-pink-600 transition">Lotus</li>
       <li class="hover:text-pink-600 transition">Jasmine</li>
       <li class="hover:text-pink-600 transition">About</li>
       <li class="hover:text-pink-600 transition">Contact</li>
     </ul>
+
+    <!-- Switch Dark Mode -->
+    <label class="relative inline-flex items-center cursor-pointer">
+      <input id="switch" class="sr-only peer" type="checkbox" />
+      <div
+        class="w-20 h-10 rounded-full bg-gradient-to-r from-yellow-300 to-orange-400 peer-checked:from-blue-400 peer-checked:to-indigo-500 transition-all duration-500 after:content-['☀️'] after:absolute after:top-1 after:left-1 after:bg-white after:rounded-full after:h-8 after:w-8 after:flex after:items-center after:justify-center after:transition-all after:duration-500 peer-checked:after:translate-x-10 peer-checked:after:content-['🌙'] after:shadow-md after:text-lg"
+      ></div>
+    </label>
 
     <!-- Bottom Section -->
     <div class="space-y-6">
@@ -65,29 +85,52 @@ Navbar.innerHTML = `
       <div class="flex items-center gap-6">
         <i class="fa-regular fa-user cursor-pointer"></i>
         <div class="relative cursor-pointer">
-        <a href='../Pages/favorites.html'>
-        <i class="fa-regular fa-heart"></i>
-        <span id="favorites-count-mobile"
-            class="bg-red-500 absolute -right-2 -top-2 rounded-full w-4 h-4 text-xs text-center text-white">0</span>
-        </a>
+          <a href="../Pages/favorites.html">
+            <i class="fa-regular fa-heart"></i>
+            <span
+              id="favorites-count-mobile"
+              class="bg-red-500 absolute -right-2 -top-2 rounded-full w-4 h-4 text-xs text-center text-white"
+            >0</span>
+          </a>
         </div>
         <div class="relative cursor-pointer">
           <i id="cart-icon-mobile" class="fa-solid fa-cart-shopping"></i>
-          <span id="counter-mobile"
-              class="bg-red-500 absolute -right-2 -top-2 rounded-full w-4 h-4 text-xs text-center text-white">0</span>
+          <span
+            id="counter-mobile"
+            class="bg-red-500 absolute -right-2 -top-2 rounded-full w-4 h-4 text-xs text-center text-white"
+          >0</span>
         </div>
-      </div>
-
-      <!-- Dark Mode Switch -->
-      <div>
-        <label class="switch">
-          <input id="checkbox" type="checkbox" />
-          <span class="slider"></span>
-        </label>
       </div>
     </div>
   </div>
 `;
+
+// ----------------------------
+// Dark Mode
+// ----------------------------
+let Darkbtn = document.getElementById('switch');
+
+Darkbtn.addEventListener('change', () => {
+  document.documentElement.classList.toggle("dark");
+
+  if (document.documentElement.classList.contains("dark")) {
+    localStorage.setItem("mode", "dark");
+  } else {
+    localStorage.setItem("mode", "light");
+  }
+});
+
+window.addEventListener("DOMContentLoaded", () => {
+  let savedMode = localStorage.getItem("mode");
+
+  if (savedMode === "dark") {
+    document.documentElement.classList.add("dark");
+    Darkbtn.checked = true; 
+  } else {
+    document.documentElement.classList.remove("dark");
+    Darkbtn.checked = false;
+  }
+});
 
 // ----------------------------
 // Navbar Responsive (Slide-in)
@@ -110,26 +153,25 @@ menuBtn.addEventListener("click", () => {
 // ----------------------------
 function updateFavoritesCount() {
   const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-  document.getElementById("favorites-count-desktop").textContent = favorites.length;
-  document.getElementById("favorites-count-mobile").textContent = favorites.length;
+  document.getElementById("favorites-count-desktop").textContent =
+    favorites.length;
+  document.getElementById("favorites-count-mobile").textContent =
+    favorites.length;
 }
 updateFavoritesCount();
- 
-   // ----------------------------
-  // Function to update cart counter
-  // ----------------------------
-  function updateCartCounter() {
-    let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
-    let counter = document.getElementById("counter");
-    let counterMobile = document.getElementById("counter-mobile");
 
-    let totalQuantity = cartItems.reduce((sum, item) => sum + item.quantity, 0);
-    counter.textContent = totalQuantity;
-    counterMobile.textContent = totalQuantity;
+// ----------------------------
+// Function to update cart counter
+// ----------------------------
+function updateCartCounter() {
+  let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+  let counter = document.getElementById("counter");
+  let counterMobile = document.getElementById("counter-mobile");
 
-  }
-
-
+  let totalQuantity = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+  counter.textContent = totalQuantity;
+  counterMobile.textContent = totalQuantity;
+}
 
 // ----------------------------
 // Cart Page Redirect
@@ -148,10 +190,5 @@ if (cartMobile) {
   });
 }
 
-// ----------------------------
-// Dark Mode
-// ----------------------------
-const checkbox = document.getElementById("checkbox");
-checkbox.addEventListener("change", () => {
-  document.documentElement.classList.toggle("dark");
-});
+
+

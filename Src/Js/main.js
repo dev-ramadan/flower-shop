@@ -1,8 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 
-
-
   fetch("../Src/data/data.json")
     .then((response) => response.json())
     .then((data) => {
@@ -24,12 +22,16 @@ document.addEventListener("DOMContentLoaded", () => {
         card.innerHTML += `
           <span class="card-bullet"></span>
           <button class="absolute top-[10px] right-[10px] bg-gray-700 shadow-2xl text-white rounded-lg p-1 text-sm">Quick View</button>
-          <img class="h-60 w-full rounded-lg mt-4" src="${flower.image}" alt="${flower.name}">
+          <img class="h-60 w-full rounded-lg mt-4" src="${flower.image}" alt="${
+          flower.name
+        }">
           <div class="card-content text-center">
             <h3 class="text-xl py-2 font-semibold">${flower.name}</h3>
             <p class="text-gray-500">${flower.description}</p>
             <div class="flex justify-between items-center pt-4">
-              <span class="text-blue-600 text-xl">$${flower.price.toFixed(2)}</span>
+              <span class="text-blue-600 text-xl">$${flower.price.toFixed(
+                2
+              )}</span>
               <button class="bg-blue-400 text-white font-bold rounded-full w-8 h-8 text-sm cart">
                 <i class="fa-solid fa-plus"></i>
               </button>
@@ -54,16 +56,16 @@ document.addEventListener("DOMContentLoaded", () => {
             price: flower.price,
             image: flower.image,
             description: flower.description,
-            quantity: 1
+            quantity: 1,
           };
 
           // 2. Read cart from localStorage
           let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
 
           // 3. Check if product already exists
-          let existing = cartItems.find(item => item.id === product.id);
+          let existing = cartItems.find((item) => item.id === product.id);
           if (existing) {
-            existing.quantity += 1;  // increase quantity
+            existing.quantity += 1; // increase quantity
           } else {
             cartItems.push(product); // add new product
           }
@@ -108,23 +110,23 @@ document.addEventListener("DOMContentLoaded", () => {
     $("#popupDescription").text(flowerData?.description);
     $("#popupPrice").text(`$${flowerData?.price.toFixed(2)}`);
     $("#popup").fadeIn();
-    return flowerData
+    return flowerData;
   };
-  
+
   // add Favorite item to localeStorge
-  $(".fav").on('click', function () {
+  $(".fav").on("click", function () {
     const favProduct = {
       name: $("#popupName").text(),
       price: $("#popupPrice").text(),
       image: $("#popupImage").attr("src"),
-      description: $("#popupDescription").text()
+      description: $("#popupDescription").text(),
     };
 
-    if (!favorites.some(item => item.name === favProduct.name)) {
+    if (!favorites.some((item) => item.name === favProduct.name)) {
       favorites.push(favProduct);
       localStorage.setItem("favorites", JSON.stringify(favorites));
       console.log("تمت الإضافة:", favProduct);
-      updateFavoritesCount()
+      updateFavoritesCount();
     } else {
       console.log("المنتج موجود بالفعل في المفضلة");
     }
@@ -177,9 +179,6 @@ document.addEventListener("DOMContentLoaded", () => {
   customerReviwe();
 });
 
-
-
-
 let cartBtn = card.querySelector(".cart");
 cartBtn.addEventListener("click", () => {
   let product = {
@@ -188,11 +187,11 @@ cartBtn.addEventListener("click", () => {
     price: flower.price,
     image: flower.image,
     description: flower.description,
-    quantity: 1
+    quantity: 1,
   };
 
   let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
-  let existing = cartItems.find(item => item.id === product.id);
+  let existing = cartItems.find((item) => item.id === product.id);
 
   if (existing) {
     existing.quantity += 1;
@@ -202,3 +201,5 @@ cartBtn.addEventListener("click", () => {
 
   localStorage.setItem("cart", JSON.stringify(cartItems));
 });
+
+

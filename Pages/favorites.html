@@ -6,6 +6,11 @@
     <title>Favorites Page </title>
     <!-- Tailwind CSS CDN Link -->
     <script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    }
+</script>
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <!-- Css -->
@@ -15,14 +20,13 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
 </head>
-<body>
-       <nav class="fixed w-full bg-blue-50 z-50 top-0 h-16 flex items-center justify-between px-20">
+<body class="dark:bg-gray-900 dark:text-gray-200">
+      <nav class="fixed w-full bg-blue-50 dark:bg-gray-800 z-50 top-0 h-16 flex items-center justify-between lg:px-20 px-10 transition-colors duration-500 ">
     </nav>
 
       <!-- العنوان -->
   <header class="bg-white shadow-md py-4 px-6 flex justify-between items-center mt-20">
       <h1 class="text-2xl font-bold text-gray-800">Favorites ❤️</h1>
-      <a href="/" class="text-blue-600 hover:underline">Home</a>
   </header>
 
   <!-- المحتوى -->
