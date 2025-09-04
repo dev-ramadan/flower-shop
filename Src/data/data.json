@@ -3,84 +3,84 @@
     "id": 1,
     "name": "Red Roses Bouquet",
     "price": 25.99,
-    "image": "../images/Flower-1.jpg",
+    "image": "../Src/assets/Flower-1.jpg",
     "description": "Bright and cheerful sunflowers in a rustic basket."
   },
   {
     "id": 2,
     "name": "Sunflower Basket",
     "price": 18.50,
-    "image": "../images/Flower-2.jpg",
+    "image": "../Src/assets/Flower-2.jpg",
     "description": "Bright and cheerful sunflowers in a rustic basket."
   },
   {
     "id": 3,
     "name": "Tulip Vase",
     "price": 22.00,
-    "image": "../images/Flower-3.jpg",
+    "image": "../Src/assets/Flower-3.jpg",
     "description": "Fresh tulips arranged in a stylish vase."
   },
   {
-    "id": 1,
+    "id": 4,
     "name": "Pink Peonies",
     "price": 28.75,
-    "image": "../images/Flower-1.jpg",
+    "image": "../Src/assets/Flower-1.jpg",
     "description": "Soft and romantic pink peony bouquet."
   },
   {
-    "id": 2,
+    "id": 5,
     "name": "Mixed Flower Basket",
     "price": 30.00,
-    "image": "../images/Flower-2.jpg",
+    "image": "../Src/assets/Flower-2.jpg",
     "description": "Colorful mix of seasonal flowers in a basket."
   },
   {
-    "id": 3,
+    "id": 6,
     "name": "White Lily Bouquet",
     "price": 26.50,
-    "image": "../images/Flower-3.jpg",
+    "image": "../Src/assets/Flower-3.jpg",
     "description": "Graceful white lilies with greenery."
   },
   {
-    "id": 1,
+    "id": 7,
     "name": "Orchid Pot",
     "price": 35.99,
-    "image": "../images/Flower-1.jpg",
+    "image": "../Src/assets/Flower-1.jpg",
     "description": "Elegant potted orchids, perfect for indoors."
   },
   {
-    "id": 2,
+    "id": 8,
     "name": "Daisy Jar",
     "price": 15.99,
-    "image": "../images/Flower-2.jpg",
+    "image": "../Src/assets/Flower-2.jpg",
     "description": "Simple and fresh daisies in a glass jar."
   },
   {
-    "id": 3,
+    "id": 9,
     "name": "Lavender Bundle",
     "price": 19.99,
-    "image": "../images/Flower-3.jpg",
+    "image": "../Src/assets/Flower-3.jpg",
     "description": "Fragrant bundle of fresh lavender stems."
   },
   {
-    "id": 1,
+    "id": 10,
     "name": "Carnation Mix",
     "price": 17.50,
-    "image": "../images/Flower-1.jpg",
+    "image": "../Src/assets/Flower-1.jpg",
     "description": "Vibrant mixed carnations for any occasion."
   },
   {
-    "id": 2,
+    "id": 11,
     "name": "Rose & Lily Combo",
     "price": 32.00,
-    "image": "../images/Flower-2.jpg",
+    "image": "../Src/assets/Flower-2.jpg",
     "description": "Classic combination of roses and lilies."
   },
   {
-    "id": 3,
+    "id": 12,
     "name": "Wildflower Bouquet",
     "price": 20.50,
-    "image": "../images/Flower-3.jpg",
+    "image": "../Src/assets/Flower-3.jpg",
     "description": "Rustic bouquet of assorted wildflowers."
   }
 ]
