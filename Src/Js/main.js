@@ -49,6 +49,8 @@ document.addEventListener("DOMContentLoaded", () => {
         let popupBtn = card.querySelector(".pop-up-add");
 
         cartBtn.addEventListener("click", function () {
+          cartBtn.textContent = "in Cart"
+          cartBtn.classList.add("w-24", "no-click")
           // 1. Prepare product data
           let product = {
             id: flower.id,
