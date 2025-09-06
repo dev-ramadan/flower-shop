@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const checkInCart = (btn) => {
     if (btn.textContent === "in Cart") {
       btn.className =
-        "w-24 rounded-md bg-green-400 text-white font-bold h-8 text-sm cart no-click";
+        "w-24 rounded-md bg-green-400 text-white font-bold h-8 text-sm cart";
       btn.disabled = true;
     } else {
       btn.className =
@@ -73,15 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
           2
         )}</span>
               <div class='flex items-center gap-2'>
-                <span class="relative flex items-center hidden qty">
-                  <h6 class="absolute left-2 cursor-pointer plus">+</h6>
-                  <input class='border-2 border-gray-600 w-20 text-center' id='setQty' value='1'> 
-                  <h6 class="absolute right-2 cursor-pointer mins">-</h6>
-                </span>
                 <button class="bg-blue-400 text-white font-bold h-8 text-sm cart"></button>
-                <button class="hidden bg-red-400 text-white font-bold rounded-full w-8 h-8 text-sm add">
-                  <i class="fa-solid fa-plus"></i>
-                </button>
               </div>
             </div>
           </div>
@@ -93,12 +85,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Item To Controle
         let cartBtn = card.querySelector(".cart");
-        let addBtn = card.querySelector(".add");
-        let qty = card.querySelector(".qty");
-        let setQty = card.querySelector("#setQty");
-        let plus = card.querySelector(".plus");
-        let mins = card.querySelector(".mins");
-
         // Chack item in Cart
         let existing = cartItems.find((item) => item.id === flower.id);
         cartBtn.innerHTML = existing
@@ -106,32 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
           : `<i class="fa-solid fa-plus"></i>`;
         checkInCart(cartBtn);
 
-        // controle in the qty
-        setQty.addEventListener("input", (e) => {
-          let qtyValue = Number(e.target.value);
-          if (qtyValue < 1 || isNaN(qtyValue)) setQty.value = 1;
-        });
-
-        plus.addEventListener("click", () => {
-          setQty.value = Number(setQty.value) + 1;
-        });
-
-        mins.addEventListener("click", () => {
-          if (setQty.value > 1) {
-            setQty.value = Number(setQty.value) - 1;
-          }
-        });
-
-        // frist click in add
-        cartBtn.addEventListener("click", function () {
-          if (this.textContent !== "in Cart") {
-            qty.classList.remove("hidden");
-            cartBtn.classList.add("hidden");
-            addBtn.classList.remove("hidden");
-          }
-        });
-
-        addBtn.addEventListener("click", addTocard)
+        cartBtn.addEventListener("click", addTocard)
 
         // add product to card
         function addTocard ()  {
@@ -142,7 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
             price: flower.price,
             image: flower.image,
             description: flower.description,
-            quantity: Number(setQty.value) || 1,
+            quantity: 1,
           };
           // 2. Read cart from localStorage
           let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
@@ -169,9 +130,6 @@ document.addEventListener("DOMContentLoaded", () => {
           // change the btn
           cartBtn.textContent = "in Cart";
           checkInCart(cartBtn);
-          cartBtn.classList.remove("hidden");
-          addBtn.classList.add("hidden");
-          qty.classList.add("hidden");
         }
       });
     })

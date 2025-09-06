@@ -1,7 +1,8 @@
 // cart
 
 document.addEventListener("DOMContentLoaded", () => {
-  let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+const cartRender = () => {
+    let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
   let container = document.getElementById("cart-container");
 
   if (cartItems.length === 0) {
@@ -31,15 +32,21 @@ document.addEventListener("DOMContentLoaded", () => {
                   <input class='border-2 border-gray-600 w-20 text-center' id='setQty' value=${item.quantity}> 
                   <h6 class="absolute right-2 cursor-pointer mins">-</h6>
                 </span>
-      <button>Remove</button>
+      <button id='remove'>Remove</button>
       `;
     container.appendChild(card);
     let qty = card.querySelector(".qty");
     let setQty = card.querySelector("#setQty");
     let plus = card.querySelector(".plus");
     let mins = card.querySelector(".mins");
+    let remove = card.querySelector("#remove");
+    remove.addEventListener("click" , ()=>{
+      let newCartItems = cartItems.filter(product => product.id != item.id );
+      localStorage.setItem("cart", JSON.stringify(newCartItems))
+      cartRender();
+      updateCartCounter()
+    })
     // controle in the qty
-
 
     plus.addEventListener("click", () => {
       setQty.value = Number(setQty.value) + 1;
@@ -54,5 +61,8 @@ document.addEventListener("DOMContentLoaded", () => {
       qty.textContent = setQty.value
       }
     });
+ 
   });
+}
+cartRender()
 });

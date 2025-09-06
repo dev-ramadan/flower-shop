@@ -27,7 +27,7 @@ Navbar.innerHTML = /* html */ `
   </div>
 
   <!-- Icons (Desktop) -->
-  <div class="space-x-4 md:flex items-center hidden relative text-gray-700 dark:text-black">
+  <div class="space-x-4 md:flex  items-center hidden relative text-gray-700 dark:text-black">
     <i class="fa-regular fa-user cursor-pointer"></i>
 
     <div class="relative cursor-pointer">
@@ -46,7 +46,8 @@ Navbar.innerHTML = /* html */ `
         id="counter"
         class="bg-red-500 absolute -right-2 -top-2 rounded-full w-4 h-4 text-xs text-center text-white"
       >0</span>
-    </div>
+      </div>
+      <div>$<span id="totale">0</span></div>
   </div>
 
   <!-- Hamburger Menu -->
@@ -100,6 +101,7 @@ Navbar.innerHTML = /* html */ `
             class="bg-red-500 absolute -right-2 -top-2 rounded-full w-4 h-4 text-xs text-center text-white"
           ></span>
         </div>
+      <div>$<span id="mobile-totale">0</span></div>
       </div>
     </div>
   </div>
@@ -165,13 +167,15 @@ updateFavoritesCount();
 // ----------------------------
 function updateCartCounter() {
   let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
-  let counter = document.getElementById("counter");
-  let counterMobile = document.getElementById("counter-mobile");
-
-  // let totalQuantity = cartItems.reduce((sum, item) => sum + item.quantity, 0);
-  counter.textContent = cartItems.length;
-  counterMobile.textContent = cartItems.length;
+  document.getElementById("counter").textContent = cartItems.length;
+  document.getElementById("counter-mobile").textContent = cartItems.length;
+  let totalPrice = cartItems.reduce((sum, item) => sum + (item.quantity * item.price), 0);
+  console.log(totalPrice);
+  
+  document.getElementById("totale").textContent = totalPrice;
+  document.getElementById("mobile-totale").textContent = totalPrice;
 }
+updateCartCounter()
 
 // ----------------------------
 // Cart Page Redirect
