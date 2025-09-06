@@ -11,7 +11,6 @@ document.addEventListener("DOMContentLoaded", () => {
     image : `../${letestFlower.querySelector("img").getAttribute("src")}`,
     quantity : 1
   }
-  console.log(letestProduct.price);
   
   letestFlowerBtn.addEventListener("click" , ()=>{
              let existing = cartItems.find((item) => item.id === letestProduct.id);
