@@ -170,7 +170,6 @@ function updateCartCounter() {
   document.getElementById("counter").textContent = cartItems.length;
   document.getElementById("counter-mobile").textContent = cartItems.length;
   let totalPrice = cartItems.reduce((sum, item) => sum + (item.quantity * item.price), 0);
-  console.log(totalPrice);
   
   document.getElementById("totale").textContent = totalPrice;
   document.getElementById("mobile-totale").textContent = totalPrice;
