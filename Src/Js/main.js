@@ -7,10 +7,12 @@ document.addEventListener("DOMContentLoaded", () => {
     id : 99,
     name : letestFlower.querySelector("h1").textContent.trim(),
     description : letestFlower.querySelector("h3").textContent.trim(),
-    price : letestFlower.querySelector("P").textContent.trim(),
+    price : letestFlower.querySelector("P").textContent.trim().slice(1),
     image : `../${letestFlower.querySelector("img").getAttribute("src")}`,
     quantity : 1
   }
+  console.log(letestProduct.price);
+  
   letestFlowerBtn.addEventListener("click" , ()=>{
              let existing = cartItems.find((item) => item.id === letestProduct.id);
           if (existing) {
