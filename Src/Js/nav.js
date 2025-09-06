@@ -98,7 +98,7 @@ Navbar.innerHTML = /* html */ `
           <span
             id="counter-mobile"
             class="bg-red-500 absolute -right-2 -top-2 rounded-full w-4 h-4 text-xs text-center text-white"
-          >0</span>
+          ></span>
         </div>
       </div>
     </div>
@@ -168,9 +168,9 @@ function updateCartCounter() {
   let counter = document.getElementById("counter");
   let counterMobile = document.getElementById("counter-mobile");
 
-  let totalQuantity = cartItems.reduce((sum, item) => sum + item.quantity, 0);
-  counter.textContent = totalQuantity;
-  counterMobile.textContent = totalQuantity;
+  // let totalQuantity = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+  counter.textContent = cartItems.length;
+  counterMobile.textContent = cartItems.length;
 }
 
 // ----------------------------
